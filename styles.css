@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --sky-blue: #1892d3;
+    --white: #fff;
+    --grey: #e1e8f0;
+    --yellow: #efb428;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr 6fr;
+    grid-template-areas: 
+            "sidebar header"
+            "sidebar main";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--sky-blue);
+    color: var(--white);
+    font-size: 1.2em;
+}
+
+.container main {
+    background-color: var(--grey);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2em;
+    padding: 2em;
+    grid-template-areas: "projects aside";
+}
+
+.container header {
+    grid-area: header;
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr; */
+    /* grid-template-rows: repeat(2, 1fr); */
+    /* grid-template-areas:  */
+            /* "part1" */
+            /* "part2"; */
+    background-color: var(--white);
+    
+}
+
+/* header .part1 {
+    grid-area: part1;
+    display: flex;
+
+}
+
+header .part2 {
+    grid-area: part2;
+    display: flex;
+} */
+
+input[type="search"] {
+    background-color: var(--grey);
+}
+
+.buttons button {
+    background-color: var(--sky-blue);
+    color: var(--white);
+}
+
+main .projects {
+    grid-area: projects;
+}
+
+main .aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+main section > h2 {
+    margin-bottom: 8px;
+}
+
+.projects .content {
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    gap: 2em;
+}
+
+.project-card,
+.announcements .articles,
+.trending .profiles {
+    background-color: var(--white);
+    /* border-radius: 10px; */
+}
+
+.project-card {
+    padding: 2em;
+    border-left: 8px solid var(--yellow);
+    border-radius: 8px;
+}
+
+.articles > hr {
+    margin: 8px 0;
+}
+
+.announcements .articles,
+.trending .profiles {
+    padding: 2em;
+    /* height: 100%; */
+    border-radius: 10px;
+}
+
+/* .articles article p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
