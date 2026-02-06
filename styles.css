@@ -1,7 +1,89 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Regular.woff2') format('woff2'),
+        url('font/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Black.woff2') format('woff2'),
+        url('font/Roboto-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Bold.woff2') format('woff2'),
+        url('font/Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-ExtraBold.woff2') format('woff2'),
+        url('font/Roboto-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-ExtraLight.woff2') format('woff2'),
+        url('font/Roboto-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Light.woff2') format('woff2'),
+        url('font/Roboto-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Medium.woff2') format('woff2'),
+        url('font/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-SemiBold.woff2') format('woff2'),
+        url('font/Roboto-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto-Thin.woff2') format('woff2'),
+        url('font/Roboto-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -15,7 +97,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 2fr 6fr;
+    grid-template-rows: 1fr 5fr;
     grid-template-areas: 
             "sidebar header"
             "sidebar main";
@@ -26,67 +108,124 @@
     background-color: var(--sky-blue);
     color: var(--white);
     font-size: 1.2em;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 2.4em;
+    padding: 1em;
+}
+
+.sidebar .title {
+    display: flex;
+    font-size: 0.8em;
+    font-weight: 500;
+    gap: 1.2em;
+    align-items: center;
+}
+
+.sidebar .title svg {
+    width: 3em;
+    height: 3em;
+    fill: var(--white);
+}
+
+.sidebar > ul > li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+}
+
+.sidebar .list1,
+.sidebar .list2 {
+    display: grid;
+    gap: 0.8em;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.sidebar li svg {
+    align-items: end;
+    width: 1.3em;
+    height: 1.3em;
+    margin-left: 0.8em;
+    fill: var(--white);
 }
 
 .container main {
     background-color: var(--grey);
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2em;
-    padding: 2em;
+    grid-template-columns: 5fr 2fr;
+    gap: 1.8em;
+    padding: 0 1.6em;
+    padding-bottom: 2em;
     grid-template-areas: "projects aside";
 }
 
 .container header {
     grid-area: header;
-    /* display: grid; */
-    /* grid-template-columns: 2fr 1fr; */
-    /* grid-template-rows: repeat(2, 1fr); */
-    /* grid-template-areas:  */
-            /* "part1" */
-            /* "part2"; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     background-color: var(--white);
-    
+    padding-top: 1em;
+    padding-left: 4em;
 }
 
-/* header .part1 {
-    grid-area: part1;
-    display: flex;
-
+header .message {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-areas: 
+                "profile-picture message";
 }
 
-header .part2 {
-    grid-area: part2;
+.message img[alt="profile-picture"] {
+    grid-area: profile-picture;
+}
+
+header .user-info,
+.user-info > .profile {
     display: flex;
-} */
+    gap: 1.2em;
+}
+
+.user-info > .profile {
+    justify-content: space-between;
+}
 
 input[type="search"] {
     background-color: var(--grey);
 }
 
-.buttons button {
+.buttons > button {
     background-color: var(--sky-blue);
     color: var(--white);
+    padding: 0.8em 2em;
+    border-radius: 2em;
 }
 
 main .projects {
     grid-area: projects;
 }
 
-main .aside {
+/* main .aside {
     display: flex;
     flex-direction: column;
     gap: 2em;
-}
+} */
 
 main section > h2 {
-    margin-bottom: 8px;
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
 }
 
 .projects .content {
     display: grid;
     grid-template-columns: repeat(2 ,1fr);
-    gap: 2em;
+    gap: 2em 1.8em;
 }
 
 .project-card,
@@ -111,6 +250,11 @@ main section > h2 {
     padding: 2em;
     /* height: 100%; */
     border-radius: 10px;
+}
+
+.trending .profiles > div {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
 }
 
 /* .articles article p {
