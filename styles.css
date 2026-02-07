@@ -9,6 +9,15 @@
 
 @font-face {
     font-family: 'Roboto';
+    src: url('font/Roboto-Light.woff2') format('woff2'),
+        url('font/Roboto-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
     src: url('font/Roboto-Medium.woff2') format('woff2'),
         url('font/Roboto-Medium.woff') format('woff');
     font-weight: 500;
@@ -51,8 +60,7 @@
 .container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 2fr 8fr;
     grid-template-areas: 
             "sidebar header"
             "sidebar main";
@@ -196,7 +204,8 @@ header .buttons {
     height: 1.4em;
 }
 
-.user-info img {
+.user-info img,
+.profiles div > img {
     width: 3em;
     height: 3em;
     border-radius: 50%;
@@ -222,15 +231,11 @@ main .projects {
     grid-area: projects;
 }
 
-/* main .aside {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-} */
-
 main section > h2 {
     margin-top: 1.8em;
     margin-bottom: 0.4em;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .projects .content {
@@ -243,35 +248,61 @@ main section > h2 {
 .announcements .articles,
 .trending .profiles {
     background-color: var(--white);
-    /* border-radius: 10px; */
+}
+
+.articles article > h3 {
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .project-card {
+    display: grid;
     padding: 2em;
     border-left: 8px solid var(--yellow);
     border-radius: 8px;
+    gap: 1em;
+}
+
+.project-card .icons {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 2em;
+}
+
+.project-card div > h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.icons svg {
+    width: 1.8em;
+    height: 1.8em;
 }
 
 .articles > hr {
     margin: 8px 0;
 }
 
+.trending .profiles {
+    display: grid;
+    gap: 1em;
+}
+
 .announcements .articles,
 .trending .profiles {
     padding: 2em;
-    /* height: 100%; */
     border-radius: 10px;
 }
 
 .trending .profiles > div {
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 4fr;
 }
 
-/* .articles article p {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
+.project-card div > p,
+.articles article > p,
+.items > .project-name {
+    color: rgba(0, 0, 0, 0.6);
+}
