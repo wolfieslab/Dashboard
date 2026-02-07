@@ -58,7 +58,6 @@
 }
 
 .container {
-    height: 100vh;
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-areas: 
